@@ -1,15 +1,37 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { usePacmanGame } from "./hooks/usePacmanGame";
 import { ScoreBoard } from "./components/ScoreBoard";
 import { GameCanvas } from "./components/GameCanvas";
 import { MobileControls } from "./components/MobileControls";
 import { appContainerStyle } from "./styles/gameStyles";
+import faviconSrc from "./components/sprites/title-1.png";
 
 export const App: React.FC = () => {
-  const { grid, pacman, ghosts, score, highScore, isGameOver, setDirection, resetGame } =
-    usePacmanGame();
+  const {
+    level,
+    totalLevels,
+    grid,
+    pacman,
+    ghosts,
+    score,
+    highScore,
+    status,
+    setDirection,
+    resetGame,
+  } = usePacmanGame();
 
   const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+
+  // Set website favicon directly from src/components/sprites/main-pic1.jpg
+  useEffect(() => {
+    let link = document.querySelector<HTMLLinkElement>("link[rel~='icon']");
+    if (!link) {
+      link = document.createElement("link");
+      link.rel = "icon";
+      document.head.appendChild(link);
+    }
+    link.href = faviconSrc;
+  }, []);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     const touch = e.touches[0];
@@ -36,12 +58,17 @@ export const App: React.FC = () => {
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <ScoreBoard score={score} highScore={highScore} />
+      <ScoreBoard
+        level={level}
+        totalLevels={totalLevels}
+        score={score}
+        highScore={highScore}
+      />
       <GameCanvas
         grid={grid}
         pacman={pacman}
         ghosts={ghosts}
-        isGameOver={isGameOver}
+        status={status}
         onReset={resetGame}
       />
       <MobileControls onDirectionChange={setDirection} />

@@ -1,5 +1,7 @@
 export type Direction = "UP" | "DOWN" | "LEFT" | "RIGHT" | null;
 
+export type GhostType = "chaser" | "ambusher" | "sprinter" | "teleporter";
+
 export interface Position {
   x: number;
   y: number;
@@ -7,9 +9,16 @@ export interface Position {
 
 export interface Ghost {
   id: string;
+  type: GhostType;
   pos: Position;
   dir: Direction;
-  sprite: string;
+}
+
+export interface LevelConfig {
+  level: number;
+  speedMs: number;
+  ghosts: { type: GhostType; startPos: Position }[];
+  map: number[][];
 }
 
 export interface ScoreBoxParams {

@@ -6,9 +6,9 @@ export const appContainerStyle: React.CSSProperties = {
   alignItems: "center",
   justifyContent: "space-between",
   minHeight: "100dvh",
-  maxWidth: "440px",
+  maxWidth: "480px",
   margin: "0 auto",
-  padding: "1rem",
+  padding: "0.75rem",
   backgroundColor: "#fafafa",
   color: "#111",
   fontFamily: "system-ui, -apple-system, sans-serif",
@@ -18,24 +18,24 @@ export const appContainerStyle: React.CSSProperties = {
 
 export const statsGridStyle: React.CSSProperties = {
   display: "grid",
-  gridTemplateColumns: "1fr 1fr",
-  gap: "0.75rem",
+  gridTemplateColumns: "repeat(3, 1fr)",
+  gap: "0.5rem",
   width: "100%",
-  marginBottom: "1rem",
+  marginBottom: "0.65rem",
 };
 
 export const cardStyle: React.CSSProperties = {
   backgroundColor: "#ffffff",
   border: "1px solid #eaeaea",
-  borderRadius: "12px",
-  padding: "0.75rem 1rem",
+  borderRadius: "10px",
+  padding: "0.5rem",
   textAlign: "center",
 };
 
 export const statNumberStyle: React.CSSProperties = {
-  fontSize: "1.4rem",
+  fontSize: "1.15rem",
   fontWeight: 700,
-  margin: "0.2rem 0 0 0",
+  margin: "0.15rem 0 0 0",
   color: "#111",
 };
 
@@ -49,26 +49,40 @@ export const canvasWrapperStyle: React.CSSProperties = {
   overflow: "hidden",
 };
 
-export const dpadGridStyle: React.CSSProperties = {
-  display: "grid",
-  gridTemplateColumns: "repeat(3, 64px)",
-  gridTemplateRows: "repeat(2, 64px)",
-  gap: "0.5rem",
-  marginTop: "1.25rem",
+export const legendRowStyle: React.CSSProperties = {
+  display: "flex",
+  flexWrap: "wrap",
   justifyContent: "center",
+  gap: "0.6rem",
+  fontSize: "0.72rem",
+  color: "#555",
+  marginTop: "0.45rem",
 };
 
-export const dpadBtnStyle: React.CSSProperties = {
+export const bigPadContainerStyle: React.CSSProperties = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  width: "100%",
+  marginTop: "0.75rem",
+  paddingBottom: "0.5rem",
+};
+
+export const bigPadButtonStyle: React.CSSProperties = {
+  position: "relative",
+  width: "164px",
+  height: "164px",
+  borderRadius: "50%",
   backgroundColor: "#ffffff",
-  border: "1px solid #dcdcdc",
-  borderRadius: "12px",
-  fontSize: "1.25rem",
-  fontWeight: 600,
-  color: "#111",
+  border: "2px solid #e0e0e0",
+  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
   cursor: "pointer",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  padding: 0,
+  outline: "none",
+  WebkitTapHighlightColor: "transparent",
 };
 
 export const primaryBtnStyle: React.CSSProperties = {
@@ -76,7 +90,7 @@ export const primaryBtnStyle: React.CSSProperties = {
   color: "#fff",
   border: "none",
   borderRadius: "8px",
-  padding: "0.6rem 1.2rem",
+  padding: "0.65rem 1.25rem",
   fontSize: "0.95rem",
   fontWeight: 600,
   cursor: "pointer",
